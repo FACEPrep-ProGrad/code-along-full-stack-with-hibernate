@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BlogDaoImpl;
+import dao.BlogDAO;
+
 
 
 @WebServlet("/delete")
@@ -40,7 +41,7 @@ public class DeleteBlogController extends HttpServlet {
 	private void deleteBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		BlogDaoImpl blogDAO = new BlogDaoImpl();
+		BlogDAO blogDAO = new BlogDAO();
 		blogDAO.deleteBlog(id);
 		response.sendRedirect("allblogs");
 	}

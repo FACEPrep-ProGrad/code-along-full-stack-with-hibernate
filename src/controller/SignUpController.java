@@ -43,22 +43,25 @@ public class SignUpController extends HttpServlet {
 	
 		
 		
-			String email = request.getParameter("email"); //  get the email value from the jsp/html page
+		String email = request.getParameter("email"); //  get the email value from the jsp/html page
 		String password = request.getParameter("password"); //  get the password value from the jsp/html page
 		String confirmPassword = request.getParameter("confirmPassword"); //  get the confirm password value from the jsp/html page
 		LocalDate date= LocalDate.now(); // Java 8 Time API used to get system date and time at a particular instance
+		
+		
 		User user=new User();
 		user.setEmail(email);
 		user.setPassword(password);
 		UserDAO userdao=new UserDAO();
-		user.setDate(date);
+	
 		int checkUser = userdao.signUp(user);
+		
 		if(checkUser!=0)
 		{
 						
 			System.out.println(user.getEmail());
 			System.out.println(user.getPassword());
-			System.out.println(user.getDate());
+			
 			request.setAttribute("message", "Registration Successful");
 			RequestDispatcher rd=this.getServletContext().getRequestDispatcher("/WEB-INF/views/signupView.jsp");
 			rd.forward(request, response);

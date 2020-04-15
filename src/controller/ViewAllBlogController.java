@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.BlogDAO;
 
-
-import dao.BlogDaoImpl;
 import model.Blog;
 
 // View Blog Servlet controller 
 @WebServlet(urlPatterns = {"/allblogs"})
 public class ViewAllBlogController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
  
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("View All Blogs");
 		System.out.println("Getting all blog post");
-		BlogDaoImpl blogDAO = new BlogDaoImpl();
+		BlogDAO blogDAO = new BlogDAO();
 		List<Blog> listBlog = blogDAO.selectAllBlogs();
 		for(Blog bloglist:listBlog) {
 			System.out.println(bloglist.getBlogId());

@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.BlogDaoImpl;
+import dao.BlogDAO;
+
 import model.Blog;
 
 @WebServlet(urlPatterns = {"/update"})
@@ -35,7 +36,7 @@ public class UpdateBlogController extends HttpServlet {
 		blog.setBlogDescription(blogDescription);
 		blog.setPostedOn(postedOn);
 		
-		BlogDaoImpl blogDao = new BlogDaoImpl();
+		BlogDAO blogDao = new BlogDAO();
 		try {
 			blogDao.updateBlog(blog);
 		} catch (Exception e) {

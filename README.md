@@ -1,4 +1,2 @@
-# project-builder-jdbc-blog-crud
-# project-builder-blog-jdbc-SignUp
-# code-along-full-stack-hibernate
-# code-along-full-stack-with-hibernate
+This is a sample application which explains crud application using hibernate. This also shows the code difference between a jdbc crud and hibernate crud.
+
